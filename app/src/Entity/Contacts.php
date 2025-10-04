@@ -23,7 +23,7 @@ class Contacts
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: "datetime_immutable")]
     private ?\DateTimeImmutable $sendAt = null;
 
     public function getId(): ?int
@@ -77,5 +77,10 @@ class Contacts
         $this->sendAt = $sendAt;
 
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->sendAt = new \DateTimeImmutable();
     }
 }
