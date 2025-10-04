@@ -1,0 +1,9 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/symfony_test/FreeLancer/portfolio/
+    - /bn/cp -R * $DEPLOYPATH
+  exclude:
+    - .git
+    - .github
+    - /mysql
+    - .idea
